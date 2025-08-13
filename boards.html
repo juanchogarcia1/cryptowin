@@ -1,0 +1,51 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tableros • Crypto Win</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><script defer src="app.js"></script>
+</head><body>
+<header class='cw'>
+  <button class="hamb" id="hamb" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  <a class="brand" href="boards.html"><img src="logo-horizontal.svg" alt="CW" class="cw-logo"></a>
+  <div style="width:40px"></div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="drawer">
+    <nav class="menu">
+      <a href="boards.html">Tableros</a>
+      <a href="referrals.html">Referidos</a>
+      <a href="commissions.html">Comisiones</a>
+      <a href="history.html">Historial</a>
+      <a href="profile.html">Configuración</a>
+      <a href="admin.html">Admin</a>
+      <a href="index.html">Salir</a>
+    </nav>
+  </aside>
+  <div class="content">
+    
+<section class='card'>
+  <h2 style='margin:0 0 10px'>Tableros (Mesas)</h2>
+  <div style='display:grid;gap:12px;grid-template-columns:repeat(3,minmax(0,1fr))' class='kpi-row'>
+    <div class='kpi-card'><div class='kpi-title'>Tableros Activos</div><div class='kpi-value' id='kpi-activos'>1</div></div>
+    <div class='kpi-card'><div class='kpi-title'>Ganancias Totales</div><div class='kpi-value' id='kpi-ganancias'>$0.00</div></div>
+    <div class='kpi-card'><div class='kpi-title'>Regla</div><div class='kpi-value small' id='kpi-regla' style='color:var(--ok)'>Cumples la regla ✅</div></div>
+  </div>
+</section>
+<section class='card'>
+  <h3 style='margin:0 0 8px'>Tu Link de Referido</h3>
+  <div class='row' style='flex-wrap:wrap'>
+    <input class='input' id='ref-link' value='https://win-win.cash/signup?ref=ABC123' readonly style='flex:1;min-width:300px'>
+    <button class='btn' id='copy-link'>Copiar</button>
+  </div>
+</section>
+<section class='card'>
+  <div style='display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap'>
+    <h3 style='margin:0'>Mesas</h3>
+    <span class='small'>1 activo</span>
+  </div>
+  <div id='boards-wrap' class='boards'></div>
+</section>
+
+    <footer>© 2025 Crypto Win — Vista previa</footer>
+  </div>
+</div>
+<div class="overlay" id="overlay"></div>
+</body></html>

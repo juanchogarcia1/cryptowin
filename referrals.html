@@ -1,0 +1,75 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Referidos • Crypto Win</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><script defer src="app.js"></script>
+</head><body>
+<header class='cw'>
+  <button class="hamb" id="hamb" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  <a class="brand" href="boards.html"><img src="logo-horizontal.svg" alt="CW" class="cw-logo"></a>
+  <div style="width:40px"></div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="drawer">
+    <nav class="menu">
+      <a href="boards.html">Tableros</a>
+      <a href="referrals.html">Referidos</a>
+      <a href="commissions.html">Comisiones</a>
+      <a href="history.html">Historial</a>
+      <a href="profile.html">Configuración</a>
+      <a href="admin.html">Admin</a>
+      <a href="index.html">Salir</a>
+    </nav>
+  </aside>
+  <div class="content">
+    
+
+<section class='card'>
+  <h2 style='margin:0 0 6px'>Red de Referidos</h2>
+  <div style='display:grid;gap:12px;grid-template-columns:repeat(4,minmax(0,1fr))'>
+    <div class='kpi-card'><div class='kpi-title'>Directos</div><div class='kpi-value' id='kpi-dir'>0</div></div>
+    <div class='kpi-card'><div class='kpi-title'>Red total</div><div class='kpi-value' id='kpi-total'>0</div></div>
+    <div class='kpi-card'><div class='kpi-title'>Ganancias referidos</div><div class='kpi-value' id='kpi-ref'>$0.00</div></div>
+    <div class='kpi-card'><div class='kpi-title'>Este mes</div><div class='kpi-value' id='kpi-month'>$0.00</div></div>
+  </div>
+  <h3 style='margin:16px 0 6px'>Tu enlace</h3>
+  <div class='row' style='gap:8px;flex-wrap:wrap'>
+    <input class='input' id='ref-url' value='https://cryptowin.app/signup?ref=ABC123' readonly style='flex:1;min-width:300px'>
+    <button class='btn' id='ref-copy'>Copiar</button>
+  </div>
+  <h3 style='margin:16px 0 6px'>Referidos directos</h3>
+  <div id='ref-list' class='small' style='display:grid;gap:8px'></div>
+</section>
+<script>
+(async function(){
+  // Demo data (replace with API later)
+  const overview = { directReferrals: 3, totalNetwork: 12, referralEarnings: 3.00, thisMonth: 2.00 };
+  const directs = [
+    {name:'Ana', email:'ana@mail.com', joined:'2025-08-10', active:true},
+    {name:'Luis', email:'luis@mail.com', joined:'2025-08-09', active:true},
+    {name:'Marta', email:'marta@mail.com', joined:'2025-08-08', active:false},
+  ];
+  document.getElementById('kpi-dir').textContent = overview.directReferrals;
+  document.getElementById('kpi-total').textContent = overview.totalNetwork;
+  document.getElementById('kpi-ref').textContent = '$' + overview.referralEarnings.toFixed(2);
+  document.getElementById('kpi-month').textContent = '$' + overview.thisMonth.toFixed(2);
+  const list = document.getElementById('ref-list');
+  list.innerHTML = directs.map(u=>`
+    <div style="border:1px solid #e6e9f0;border-radius:12px;padding:10px;background:#fff;display:flex;justify-content:space-between;gap:10px;align-items:center">
+      <div>
+        <div style="font-weight:600">${u.name}</div>
+        <div class="small" style="color:#64748b">${u.email} • ${u.joined}</div>
+      </div>
+      <span class="badge" style="background:${u.active?'#e7f6ed':'#eef2ff'};color:${u.active?'#16a34a':'#334155'};border:1px solid ${u.active?'#bbf7d0':'#c7d2fe'}">${u.active?'Activo':'Pendiente'}</span>
+    </div>
+  `).join('');
+  document.getElementById('ref-copy').onclick = async ()=>{
+    try{ await navigator.clipboard.writeText(document.getElementById('ref-url').value); alert('Copiado'); }catch(e){ alert('No se pudo copiar'); }
+  };
+})();
+</script>
+
+
+    <footer>© 2025 Crypto Win — Vista previa</footer>
+  </div>
+</div>
+<div class="overlay" id="overlay"></div>
+</body></html>

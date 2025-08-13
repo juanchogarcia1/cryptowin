@@ -1,0 +1,114 @@
+
+:root{--blue:#1A3A6D;--bg:#ffffff;--text:#0f172a;--muted:#64748b;--radius:14px;--shadow:0 6px 18px rgba(16,24,40,.06);--accent:#007aff;--border:#e6e9f0;--ok:#16a34a;--bad:#dc2626}
+*{box-sizing:border-box}html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial;background:var(--bg);color:var(--text)}
+a{color:var(--blue);text-decoration:none}
+header.cw{position:sticky;top:0;z-index:40;background:#fff;color:#0f172a;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:10px 16px}
+header.cw img.cw-logo{height:48px}
+.main{max-width:1200px;margin:24px auto;padding:0 16px}.card{background:#fff;border-radius:16px;box-shadow:var(--shadow);padding:20px;border:1px solid var(--border)}
+.small{font-size:13px;color:#64748b}
+.btn{display:inline-block;background:var(--accent);color:#fff;border:1px solid var(--accent);padding:10px 14px;border-radius:12px;font-weight:600;cursor:pointer}
+.btn.secondary{background:transparent;color:var(--accent)}
+.btn[disabled]{opacity:.6;cursor:not-allowed}.btn:hover:not([disabled]){filter:brightness(1.05)}
+.input{width:100%;padding:12px 14px;border-radius:12px;border:1px solid var(--border);background:#fff}
+.row{display:flex;gap:8px;align-items:center}
+footer{text-align:center;color:var(--muted);margin:48px auto 24px}
+
+/* Sidebar layout */
+.layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+.sidebar{position:sticky;top:0;align-self:start;height:100vh;background:#fff;border-right:1px solid var(--border);padding:16px}
+.menu{display:flex;flex-direction:column;gap:6px}
+.menu a{padding:10px 12px;border-radius:10px}
+.menu a:hover{background:#f8fafc}
+
+/* Boards grid */
+.boards{display:grid;gap:16px;grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:1100px){ .boards{grid-template-columns:repeat(2,minmax(0,1fr))} }
+@media(max-width:700px){ .layout{grid-template-columns:1fr}.sidebar{height:auto;border-right:none;border-bottom:1px solid var(--border)} .boards{grid-template-columns:1fr} .content{padding:16px} }
+
+.board{border:1px solid var(--border);border-radius:16px;background:#fff;box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.board .head{display:flex;justify-content:space-between;align-items:center;padding:14px 16px;border-bottom:1px solid #eef2f7}
+.board .name{font-weight:800}.badge{font-size:12px;background:#e7f6ed;color:var(--ok);padding:4px 8px;border-radius:999px}
+.board .body{padding:16px;display:grid;gap:12px}
+.kv{display:flex;justify-content:space-between;gap:8px}.kv span:last-child{font-weight:700}
+.progress{height:10px;background:#eef2ff;border-radius:999px;overflow:hidden}.progress>span{display:block;height:100%;background:var(--accent);width:0%}
+
+/* Modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(2,6,23,.5);display:none;align-items:center;justify-content:center;padding:16px}
+.modal{background:#fff;border-radius:16px;box-shadow:var(--shadow);width:min(560px,100%);padding:18px}
+.modal h3{margin:0 0 6px;color:var(--blue)}.modal .actions{display:flex;justify-content:flex-end;gap:8px;margin-top:12px}
+
+/* Segmented tabs + profile */
+.seg-tabs{display:flex;gap:8px;background:#f1f5f9;border-radius:12px;padding:4px;width:max-content}
+.seg-tab{padding:10px 16px;border-radius:10px;border:none;background:transparent;cursor:pointer;font-size:15px}
+.seg-tab.active{background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.label{font-size:14px;color:#475569;margin-bottom:6px}
+.wallet-card{border:1px solid var(--border);border-radius:12px;padding:12px;background:#fff;margin-top:10px}
+.emptybox{display:grid;place-items:center;border:1px dashed var(--border);border-radius:12px;padding:24px;gap:6px;background:#fff}
+.kpi-card{background:transparent;border:none;padding:0}.kpi-title{font-size:12px;color:#64748b}.kpi-value{font-size:24px;font-weight:700}
+
+
+/* Auth layout */
+.auth-wrap{min-height:calc(100vh - 80px);display:grid;place-items:center;padding:24px}
+.auth-card{width:min(440px,100%);background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);padding:24px}
+.auth-logo{display:flex;justify-content:center;margin-bottom:8px}
+.auth-title{margin:4px 0 6px;text-align:center;font-size:28px;font-weight:700;color:#1A3A6D}
+.auth-sub{margin:0 0 16px;text-align:center;color:#64748b}
+.input-wrap{position:relative}
+.input-wrap .icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);opacity:.6}
+.input.iconed{padding-left:38px}
+.btn.gold{background:#f4b400;border-color:#f4b400;color:#fff}
+.auth-footer{margin-top:12px;text-align:center;font-size:14px}
+
+
+/* Botón hamburguesa */
+.hamb{display:none; background:transparent; border:0; padding:8px; border-radius:8px}
+.hamb span{display:block; width:22px; height:2px; background:#0f172a; margin:4px 0}
+
+/* Overlay para el drawer */
+.overlay{position:fixed; inset:0; background:rgba(2,6,23,.45); opacity:0; pointer-events:none; transition:opacity .2s; z-index:60}
+.overlay.show{opacity:1; pointer-events:auto}
+
+/* Móvil: sidebar como off-canvas */
+@media (max-width: 700px){
+  .hamb{display:block}
+  .layout{grid-template-columns:1fr}
+  .sidebar{
+    position:fixed; top:56px; left:-260px;
+    width:260px; height:calc(100vh - 56px);
+    border-right:1px solid var(--border);
+    background:#fff; padding:16px; z-index:70;
+    transition:left .2s ease;
+  }
+  .sidebar.open{ left:0 }
+  header.cw{position:fixed; top:0; left:0; right:0}
+  .auth-wrap, .content{ padding-top:72px }
+}
+
+
+/* Mobile polish: mesas más legibles y tocables */
+@media (max-width:700px){
+  .card{ padding:18px }
+  .board .head{ padding:14px }
+  .board .name{ font-size:18px }
+  .badge{ font-size:12px; padding:5px 10px }
+
+  .board .body{ gap:10px }
+  .kv span:first-child{ font-size:14px }
+  .kv span:last-child{ font-size:16px; font-weight:800 }
+
+  /* Barra de progreso más alta y visible */
+  .progress{ height:14px; border-radius:12px; }
+  .progress > span{ height:14px }
+
+  /* Inputs y botones más cómodos en móvil */
+  .input{ padding:14px 16px; font-size:16px }
+  .btn{ padding:12px 16px; border-radius:12px; font-size:16px }
+
+  /* Espacios entre tarjetas de mesa */
+  .boards{ gap:14px }
+}
+
+/* Opcional: animación sutil de la barra */
+@media (prefers-reduced-motion: no-preference){
+  .progress > span{ transition: width .35s ease }
+}

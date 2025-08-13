@@ -1,0 +1,18 @@
+Contenido del paquete:
+
+admin.html
+app.js
+backend/.env.example
+backend/README.md
+backend/package.json
+backend/server.js
+boards.html
+commissions.html
+favicon.svg
+history.html
+index.html
+logo-horizontal.svg
+profile.html
+referrals.html
+signup.html
+style.css

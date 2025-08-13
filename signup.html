@@ -1,0 +1,52 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Registro • Crypto Win</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="style.css">
+<script defer src="app.js"></script>
+</head><body>
+<header class='cw'><a class='brand' href='index.html'><img src='logo-horizontal.svg' alt='CW' class='cw-logo'></a></header>
+<main class='auth-wrap'>
+  <div class='auth-card'>
+    
+<div class="auth-logo"><img src="logo-horizontal.svg" alt="Crypto Win" style="height:64px"></div>
+<h1 class="auth-title">Create your account</h1>
+<p class="auth-sub">Join Crypto Win</p>
+
+<form onsubmit="event.preventDefault();location.href='boards.html'">
+  <label class="label">Full name</label>
+  <input class="input" placeholder="Your full name" required>
+
+  <div style="height:10px"></div>
+  <label class="label">Email</label>
+  <div class="input-wrap">
+    <span class="icon">✉️</span>
+    <input class="input iconed" type="email" placeholder="Enter your email" required>
+  </div>
+
+  <div style="height:10px"></div>
+  <label class="label">Password</label>
+  <div class="input-wrap">
+    <span class="icon">🔒</span>
+    <input class="input iconed" type="password" placeholder="Create a password" required>
+  </div>
+
+  <div style="height:10px"></div>
+  <label class="label">Referral (optional)</label>
+  <input class="input" id="ref-field" placeholder="Referral code">
+
+  <div style="height:14px"></div>
+  <button class="btn gold" style="width:100%">Create account</button>
+</form>
+<div class="auth-footer">Already have an account? <a href="index.html">Sign in</a></div>
+
+<script>
+// Autorrelleno del referral desde ?ref=
+const ref = new URLSearchParams(location.search).get('ref');
+if (ref) document.getElementById('ref-field').value = ref;
+</script>
+
+  </div>
+</main>
+<footer>© 2025 Crypto Win — Vista previa</footer>
+</body></html>

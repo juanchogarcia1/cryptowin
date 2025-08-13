@@ -1,0 +1,21 @@
+{
+  "name": "cryptowin-backend-tron-pg",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "migrate": "node migrate.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "csv-stringify": "^6.5.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.1.5",
+    "node-cron": "^3.0.3",
+    "pg": "^8.11.5",
+    "tronweb": "^5.2.0",
+    "uuid": "^9.0.1"
+  }
+}

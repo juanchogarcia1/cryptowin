@@ -1,0 +1,127 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Configuración • Crypto Win</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><script defer src="app.js"></script>
+</head><body>
+<header class='cw'>
+  <button class="hamb" id="hamb" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  <a class="brand" href="boards.html"><img src="logo-horizontal.svg" alt="CW" class="cw-logo"></a>
+  <div style="width:40px"></div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="drawer">
+    <nav class="menu">
+      <a href="boards.html">Tableros</a>
+      <a href="referrals.html">Referidos</a>
+      <a href="commissions.html">Comisiones</a>
+      <a href="history.html">Historial</a>
+      <a href="profile.html">Configuración</a>
+      <a href="admin.html">Admin</a>
+      <a href="index.html">Salir</a>
+    </nav>
+  </aside>
+  <div class="content">
+    
+<section class="card">
+  <h2 style="margin:0 0 6px; font-size:28px; display:flex; align-items:center; gap:10px">
+    <span style="font-size:24px">⚙️</span> Account Settings
+  </h2>
+  <p class="small" style="margin:0 0 12px">Manage your profile, wallets, and preferences</p>
+
+  <div class="seg-tabs" role="tablist">
+    <button class="seg-tab active" data-tab="profile">👤 Profile</button>
+    <button class="seg-tab" data-tab="wallets">💼 Wallets</button>
+    <button class="seg-tab" data-tab="notifications">🔔 Notifications</button>
+    <button class="seg-tab" data-tab="security">🔒 Security</button>
+  </div>
+
+  <div id="profile" class="section active" style="margin-top:12px">
+    <h3 style="margin-top:0">Personal Information</h3><div class='small' style='color:#64748b'>Last login: 2025-08-11 18:22 • IP 190.123.45.67</div>
+    <div class="form-grid" style="display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))">
+      <div><label class="label">Full Name</label><input class="input" placeholder="Your full name"></div>
+      <div><label class="label">Email Address</label><input class="input" placeholder="you@example.com" disabled></div>
+      <div><label class="label">Phone Number</label><input class="input" placeholder="Enter your phone number"></div>
+      <div><label class="label">Country</label><input class="input" placeholder="Enter your country"></div>
+      <div style="grid-column:1/-1"><label class="label">Bio</label><textarea class="input" rows="3" placeholder="Tell us about yourself"></textarea></div>
+    </div>
+    <div style="margin-top:12px"><button class="btn">Save Changes</button></div>
+  </div>
+
+  <div id="wallets" class="section" style="display:none;margin-top:12px">
+    <h3 style="margin-top:0; font-size:20px; display:flex; align-items:center; gap:8px">
+      <span>💼</span> Payment Wallets
+    </h3>
+    <p class="small">Manage your cryptocurrency and payment wallets</p>
+
+    <div id="wallet-empty" class="emptybox">
+      <div class="empty-illustration" style="opacity:.8">
+        <svg viewBox="0 0 24 24" width="44" height="44" fill="none" stroke="#94a3b8">
+          <rect x="2" y="7" width="20" height="12" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v2"/>
+        </svg>
+      </div>
+      <div class="small">No wallets added yet</div>
+      <button class="btn" onclick="document.getElementById('wallet-form').style.display='block';document.getElementById('wallet-empty').style.display='none'">Add Wallet</button>
+    </div>
+
+    <div id="wallet-form" style="display:none; margin-top:10px">
+      <div class="row" style="gap:8px; flex-wrap:wrap">
+        <input class="input" id="wallet" placeholder="USDT (TRC20) — dirección que inicia con T..." style="flex:1; min-width:280px">
+        <button class="btn">Save</button>
+        <button class="btn secondary" onclick="document.getElementById('wallet-form').style.display='none';document.getElementById('wallet-empty').style.display='grid'">Cancel</button>
+      </div>
+      <div id="wallet-msg" class="small" style="margin-top:4px;color:#64748b"></div>
+    </div>
+
+    <div id="wallet-card" class="wallet-card" style="display:none">
+      <div class="row" style="justify-content:space-between;align-items:center">
+        <div><div class="label" style="margin:0">USDT (TRC20)</div><div id="wallet-value" style="font-weight:700;font-size:16px">T...</div></div>
+        <div class="row" style="gap:8px"><button class="btn secondary">Edit</button></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="notifications" class="section" style="display:none;margin-top:12px">
+    <h3 style="margin-top:0">Notification Preferences</h3>
+    <div class="wallet-card">
+      <div class="row" style="justify-content:space-between;align-items:center">
+        <div><div style="font-weight:600">Email Notifications</div><div class="small">Receive updates via email</div></div>
+        <label class="switch"><input type="checkbox"><span></span></label>
+      </div>
+      <div class="row" style="justify-content:space-between;align-items:center;margin-top:8px">
+        <div><div style="font-weight:600">SMS Notifications</div><div class="small">Receive updates via SMS</div></div>
+        <label class="switch"><input type="checkbox"><span></span></label>
+      </div>
+    </div>
+  </div>
+
+  <div id="security" class="section" style="display:none;margin-top:12px">
+    <h3 style="margin-top:0">Security Settings</h3>
+    <div class="wallet-card">
+      <div class="row" style="justify-content:space-between;align-items:center">
+        <div><div style="font-weight:600">Two-Factor Authentication</div><div class="small">Add an extra layer of security</div></div>
+        <button class="btn secondary">Enable</button>
+      </div>
+      <div class="row" style="justify-content:space-between;align-items:center;margin-top:8px">
+        <div><div style="font-weight:600">Change Password</div><div class="small">Update your account password</div></div>
+        <button class="btn secondary" onclick="document.getElementById('pwd-backdrop').style.display='flex'">Change Password</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+// Tabs behavior
+document.querySelectorAll('.seg-tab').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.seg-tab').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s=>s.style.display='none');
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).style.display='block';
+  });
+});
+</script>
+
+    <footer>© 2025 Crypto Win — Vista previa</footer>
+  </div>
+</div>
+<div class="overlay" id="overlay"></div>
+</body></html>

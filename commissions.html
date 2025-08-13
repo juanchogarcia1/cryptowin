@@ -1,0 +1,54 @@
+<!doctype html><html lang="es"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comisiones • Crypto Win</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><script defer src="app.js"></script>
+</head><body>
+<header class='cw'>
+  <button class="hamb" id="hamb" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  <a class="brand" href="boards.html"><img src="logo-horizontal.svg" alt="CW" class="cw-logo"></a>
+  <div style="width:40px"></div>
+</header>
+<div class="layout">
+  <aside class="sidebar" id="drawer">
+    <nav class="menu">
+      <a href="boards.html">Tableros</a>
+      <a href="referrals.html">Referidos</a>
+      <a href="commissions.html">Comisiones</a>
+      <a href="history.html">Historial</a>
+      <a href="profile.html">Configuración</a>
+      <a href="admin.html">Admin</a>
+      <a href="index.html">Salir</a>
+    </nav>
+  </aside>
+  <div class="content">
+    
+<section class='card'>
+  <div style='display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap'>
+    <h2 style='margin:0'>Comisiones y Retiros</h2>
+    <button class='btn' onclick="document.getElementById('wd-backdrop').style.display='flex'">Solicitar retiro</button>
+  </div>
+  <p class='small'>Los retiros se pueden solicitar los lunes y se procesan dentro de 24 horas.</p>
+  <div class='kpi-row' style='display:grid;gap:12px;grid-template-columns:repeat(3,minmax(0,1fr))'>
+    <div class='kpi-card'><div class='kpi-title'>Pagos realizados</div><div class='kpi-value'>$0.00</div></div>
+    <div class='kpi-card'><div class='kpi-title'>Saldo disponible</div><div class='kpi-value'>$0.00</div></div>
+    <div class='kpi-card'><div class='kpi-title'>Ganancias</div><div class='kpi-value'>$0.00</div></div>
+  </div>
+</section>
+<section class='card'><h3 style='margin:0 0 8px'>Solicitudes de retiro</h3><div class='small'>Sin solicitudes aún</div></section>
+<section class='card'><h3 style='margin:0 0 8px'>Historial de comisiones</h3><div class='small'>$0.00 — Total acumulado</div></section>
+
+<div id="wd-backdrop" class="modal-backdrop">
+  <div class="modal">
+    <h3>Solicitar retiro</h3>
+    <div class="kv"><span>Wallet TRC20</span><span class="small">Configura en Perfil</span></div>
+    <div class="kv"><span>Monto</span><span><input class="input" placeholder="Mínimo 10 USDT" style="width:160px"></span></div>
+    <div class="kv"><span>Comisión (5%)</span><span>$0.00</span></div>
+    <div class="kv"><span>Recibirás</span><span>$0.00</span></div>
+    <div class="actions"><button class="btn secondary" onclick="document.getElementById('wd-backdrop').style.display='none'">Cancelar</button><button class="btn">Confirmar retiro</button></div>
+  </div>
+</div>
+
+    <footer>© 2025 Crypto Win — Vista previa</footer>
+  </div>
+</div>
+<div class="overlay" id="overlay"></div>
+</body></html>
